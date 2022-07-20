@@ -58,3 +58,6 @@ export default App;
 //give the user the option to choose two different countries and show their data side by side 
 //highlight comparison between countries through color, or other differentiation
 
+
+//how to pass the country name through as props
+//

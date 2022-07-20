@@ -3,7 +3,18 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   flex-direction: row;
-  list-style: none;
+}
+
+.nav2 {
+  text-decoration: none;
+  color: white;
+  font-family: 'Cormorant SC', serif;
+  font-size: 30px;
+}
+
+.nav2:hover {
+  text-decoration: underline;
+  color: rgb(221, 228, 222);
 }
 
 .main {
@@ -18,3 +29,31 @@ html {
   background-size: cover;
 }
 
+.countryList {
+  float: left; 
+  width: 33%;
+}
+
+.countryLinks {
+  text-decoration: none;
+  color: white;
+  font-family: 'Cormorant SC', serif;
+  font-size: 25px;
+}
+
+.countryLinks:hover {
+  text-decoration: underline overline;
+  color: rgb(221, 228, 222);
+}
+
+.openingArt {
+  width: 75%;
+  height: 75%
+}
+
+.emissions{
+    text-decoration: none;
+    color: white;
+    font-family: 'Cormorant SC', serif;
+    font-size: 25px;
+}
