@@ -59,7 +59,6 @@ export default App;
 
 
 
-//start to look into the bar graph
 //styling
 //readme
 //deployment
