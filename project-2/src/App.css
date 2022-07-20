@@ -14,7 +14,7 @@
 
 .nav2:hover {
   text-decoration: underline;
-  color: rgb(221, 228, 222);
+  color: rgb(50, 179, 71);
 }
 
 .main {
@@ -43,7 +43,7 @@ html {
 
 .countryLinks:hover {
   text-decoration: underline overline;
-  color: rgb(221, 228, 222);
+  color: rgb(50, 179, 71);
 }
 
 .openingArt {
@@ -56,4 +56,23 @@ html {
     color: white;
     font-family: 'Cormorant SC', serif;
     font-size: 25px;
+    border-style: solid;
+    border-color:black;
+    border-width: .1em;
+    width: 40vw; 
+    margin: auto;
+    background-color: rgba(20, 38, 70, 0.38);
+}
+
+.eList {
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-color: black;
+  margin: 0px;
+}
+
+.graph {
+  width: 75vw;
+  margin: auto;
+  padding-bottom: 5vh; 
 }

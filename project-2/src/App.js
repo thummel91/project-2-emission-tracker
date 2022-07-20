@@ -7,7 +7,6 @@ import './App.css'
 
 const App = () => {
   const [country, setCountry] = useState();
-  
 
   return (
     <div className ="overall">
@@ -22,9 +21,9 @@ const App = () => {
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/countries" element={<CountryList setCountry={setCountry} country = {country}/>} />
+          <Route path="/countries" element={<CountryList />} />
           <Route
-            path="/emissions/:id"
+            path="/emissions/:id/:name"
             element={<Emissions setCountry={setCountry} country={country} />}
           />
         </Routes>
@@ -59,5 +58,8 @@ export default App;
 //highlight comparison between countries through color, or other differentiation
 
 
-//how to pass the country name through as props
-//
+
+//start to look into the bar graph
+//styling
+//readme
+//deployment
