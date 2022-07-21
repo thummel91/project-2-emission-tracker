@@ -1,6 +1,6 @@
 .nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
 }
@@ -82,8 +82,16 @@ html {
   color: white;
   font-family: "Cormorant SC", serif;
   font-size: 25px;
-  height:100vh;
+  height: 75vh;
   margin: 0;
+}
+
+.title {
+  color: white;
+  font-family: "Cormorant SC", serif;
+  font-size: 50px;
+  text-align: center;
+  margin: 0px;
 }
 
 .grid {

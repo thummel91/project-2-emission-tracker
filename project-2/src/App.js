@@ -3,18 +3,22 @@ import { Routes, Route, Link } from "react-router-dom";
 import CountryList from "./CountryList";
 import Home from "./Home";
 import Emissions from "./Emissions";
-import './App.css'
+import "./App.css";
 
 const App = () => {
   const [country, setCountry] = useState();
 
   return (
-    <div className ="overall">
-      <nav className = "nav">
-        <Link className = "nav2" to="/">
+    <div className="overall">
+        <h1 className="title">Carbon and Electricity</h1>
+      <nav className="nav">
+        <Link className="nav2" to="/">
           <h1>Home</h1>
         </Link>
-        <Link className= "nav2" to="/countries">
+        <Link className="nav2" to="/about">
+          <h1>About</h1>
+        </Link>
+        <Link className="nav2" to="/countries">
           <h1>Countries List</h1>
         </Link>
       </nav>
@@ -22,6 +26,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/countries" element={<CountryList />} />
+          {/* <Route path="/about" element={<About/>}/> */}
           <Route
             path="/emissions/:id/:name"
             element={<Emissions setCountry={setCountry} country={country} />}
@@ -54,11 +59,12 @@ export default App;
 
 //stretch goal - render a graph on each countries page
 //there will also be a search bar that will transport the user to the correct page
-//give the user the option to choose two different countries and show their data side by side 
+//give the user the option to choose two different countries and show their data side by side
 //highlight comparison between countries through color, or other differentiation
 
-
-
 //styling
+
+
+//Thursday: 
 //readme
 //deployment

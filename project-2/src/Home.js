@@ -3,8 +3,6 @@ import React from "react";
 const Home = () => {
   return (
     <div className="home">
-      <h1>Welcome to the emissions website!</h1>
-      <p>Find out about emissions in your region!</p>
       <div class="grid">
         <div class="grid-item1"></div>
         <div class="grid-item2"></div>
