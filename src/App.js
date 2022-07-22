@@ -4,6 +4,7 @@ import CountryList from "./CountryList";
 import Home from "./Home";
 import Emissions from "./Emissions";
 import "./App.css";
+import About from "./About";
 
 const App = () => {
   const [country, setCountry] = useState();
@@ -26,7 +27,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/countries" element={<CountryList />} />
-          {/* <Route path="/about" element={<About/>}/> */}
+          <Route path="/about" element={<About/>}/>
           <Route
             path="/emissions/:id/:name"
             element={<Emissions setCountry={setCountry} country={country} />}

@@ -94,6 +94,26 @@ html {
   margin: 0px;
 }
 
+.about{
+    color: white;
+    font-family: 'Yellowtail', cursive;
+    font-size: 35px;
+    text-align: center;
+    margin: 0px;
+    background-color:rgba(46, 152, 171, 0.38);
+    border-style: solid;
+    width: 90vw;
+    margin: auto;
+}
+
+.aboutParagraph {
+  color: white;
+  font-family: 'Yellowtail', cursive;
+    font-size: 30px;
+    text-align: center;
+    margin: 0px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -166,3 +186,5 @@ html {
   grid-column: 6/8;
   grid-row: 1/6;
 }
+
+
