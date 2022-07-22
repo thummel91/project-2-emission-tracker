@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Carbon Emissions Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="1247" alt="Screen Shot 2022-07-22 at 9 25 59 AM" src="https://user-images.githubusercontent.com/105612788/180449170-59c5880e-fa00-4580-8eb8-fc8a40be15d8.png">
 
-## Available Scripts
 
-In the project directory, you can run:
+## Project description
 
-### `npm start`
+This website allows users to compare the carbon emissions associated with different forms of electricity generation within a variety of countries. Due to both the uneveness between the global north in south both in terms of the availability of data, and more importantly, the level of industrial development, most the countries with available data are countries from the industrially developed global north. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## The website features the following: 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Home page
 
-### `npm test`
+The home page, pictured above, features a photo collage, built with css grid, exploring  our world at the energy crossroads. At the top is a navigation bar, always present on the page and built with Router, that brings the user back to the home page, to an "About" page, or to a "Countries List" page. The "About" page features a description of how the site works, while the "Countries List" displays a list of the countries where data can be found on carbon emissions. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="741" alt="Screen Shot 2022-07-22 at 9 47 49 AM" src="https://user-images.githubusercontent.com/105612788/180452879-77cfe006-f61c-4dee-bbe1-1d742aa378a2.png">
 
-### `npm run build`
+### Emissions Pages
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="743" alt="Screen Shot 2022-07-22 at 9 48 45 AM" src="https://user-images.githubusercontent.com/105612788/180453028-978a39ca-a25b-4ec4-9a86-424779222d78.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="745" alt="Screen Shot 2022-07-22 at 9 49 05 AM" src="https://user-images.githubusercontent.com/105612788/180453086-cd566e87-6c65-418f-abf0-66b60b696035.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Upon clicking on one of the countries in the list, the user is brought to an "Emissions" page for the country. Each page contains emissions data on the following types of electricity generation: 
+<br>
+-Natural Gas
+<br>
+-Biomass
+<br>
+-Coal
+<br>
+-Geothermal
+<br>
+-Hydro
+<br>
+-Nuclear
+<br>
+-Petroleum and other oil derivatives
+<br>
+-Solarvoltaic 
+<br>
+-Wind
+<br>
 
-### `npm run eject`
+At the top of the page, a bar graph displays the data for each form of energy generation, and a table is displayed below with a section for each form of energy generation. If no data exists for a specific form of energy generation, an appropriate message is displayed in the table and no information for that form is displayed on the graph. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
