@@ -22,16 +22,25 @@ The home page, pictured above, features a photo collage, built with css grid, ex
 <img width="745" alt="Screen Shot 2022-07-22 at 9 49 05 AM" src="https://user-images.githubusercontent.com/105612788/180453086-cd566e87-6c65-418f-abf0-66b60b696035.png">
 
 Upon clicking on one of the countries in the list, the user is brought to an "Emissions" page for the country. Each page contains emissions data on the following types of electricity generation: 
-
+<br>
 -Natural Gas
+<br>
 -Biomass
+<br>
 -Coal
+<br>
 -Geothermal
+<br>
 -Hydro
+<br>
 -Nuclear
+<br>
 -Petroleum and other oil derivatives
+<br>
 -Solarvoltaic 
+<br>
 -Wind
+<br>
 
 At the top of the page, a bar graph displays the data for each form of energy generation, and a table is displayed below with a section for each form of energy generation. If no data exists for a specific form of energy generation, an appropriate message is displayed in the table and no information for that form is displayed on the graph. 
 
