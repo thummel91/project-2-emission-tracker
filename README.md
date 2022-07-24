@@ -5,7 +5,7 @@
 
 ## Project description
 
-This website allows users to compare the carbon emissions associated with different forms of electricity generation within a variety of countries. Due to both the uneveness between the global north and south both in terms of the availability of data, and more importantly, the level of industrial development, most of the countries listed on the site are countries from the global north.
+This website allows users to compare the carbon emissions associated with different forms of electricity generation within a variety of countries. Due to the uneveness between the global north and south both in terms of the availability of data, and more importantly, the level of industrial development, most of the countries listed on the site are countries from the global north.
 
 ## The website features the following: 
 

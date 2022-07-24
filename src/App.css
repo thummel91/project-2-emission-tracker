@@ -1,3 +1,5 @@
+
+
 .nav {
   display: flex;
   justify-content: space-around;
@@ -104,6 +106,7 @@ html {
     border-style: solid;
     width: 90vw;
     margin: auto;
+    box-shadow: 5px 5px rgb(168, 169, 228);
 }
 
 .aboutParagraph {
@@ -124,7 +127,7 @@ html {
 }
 
 .grid-item1 {
-  background-image: url("https://environmentamerica.org/sites/environment/files/wind_turbines-lines-Arina_P_Habich_via_shutterstock_13290388.jpg");
+  background-image: url("https://environmentamerica.org/sites/environment/files/wind_turbines-lines-Arina_P_Habich_via_shutterstock_13290388.jpg"), linear-gradient(#eb01a5, #d13531);
   background-size: cover;
   background-position: center;
   grid-column: 1/4;
