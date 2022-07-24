@@ -20,7 +20,7 @@ const App = () => {
           <h1>About</h1>
         </Link>
         <Link className="nav2" to="/countries">
-          <h1>Countries List</h1>
+          <h1>Countries</h1>
         </Link>
       </nav>
       <main className="main">
