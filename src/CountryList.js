@@ -17,7 +17,7 @@ const CountryList = () => {
 //   fetch(url2, {
 //     method: "GET",
 //     headers: {
-//       Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+//       Authorization: 
 //       "Content-Type": "application/json",
 //     },
 //   })
