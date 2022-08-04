@@ -20,6 +20,9 @@ const Emissions = () => {
   const [wind, setWind] = useState();
 
 
+const API_KEY = process.env.REACT_APP_API_KEY
+
+console.log({API_KEY})
 
 
   //GAS
@@ -28,7 +31,7 @@ const Emissions = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+        Authorization: API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -59,7 +62,7 @@ const Emissions = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+        Authorization: API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -91,7 +94,7 @@ const Emissions = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+        Authorization: API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -123,7 +126,7 @@ const Emissions = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+        Authorization: API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -155,7 +158,7 @@ const Emissions = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+        Authorization: API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -187,7 +190,7 @@ const Emissions = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+        Authorization: API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -219,7 +222,7 @@ const Emissions = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+        Authorization: API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -252,7 +255,7 @@ const Emissions = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+        Authorization: API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -283,7 +286,7 @@ const Emissions = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Bearer 2WBP8XKDTTMMMSQBCX27SPSDD078",
+        Authorization: API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({

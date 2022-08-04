@@ -9,6 +9,12 @@ import About from "./About";
 const App = () => {
   const [country, setCountry] = useState();
 
+
+const API_KEY = process.env.REACT_APP_API_KEY
+
+console.log(process.env.REACT_APP_API_KEY)
+console.log(API_KEY)
+
   return (
     <div className="overall">
         <h1 className="title">Carbon and Electricity</h1>
