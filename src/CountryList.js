@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import list from "./list.json"
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-
+   
 // const url2 = "https://beta3.api.climatiq.io/emission-factors/regions";
 
 
@@ -11,24 +12,19 @@ const CountryList = () => {
 // const clearCountry = () => {
 //     setCountry(undefined)
 // }
+const [country, setCountry] = useState([]);
 
+useEffect(() => {
+  getCountries()
+}, []);
+const getCountries = () => {
+  axios.get(`https://gentle-wave-72526.herokuapp.com/emissions`).then((res) => {
+    console.log(res.data)
+      setCountry(res.data);
+    });
+}
 
-// useEffect(() => { 
-//   fetch(url2, {
-//     method: "GET",
-//     headers: {
-//       Authorization: 
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       return data.results})
-//     .then((data) => {
-//       return setCountry(data);
-//     })
-// }); 
-
+console.log(country)
 
 
 //   let countryList =
@@ -42,12 +38,12 @@ const CountryList = () => {
 //       </div>
 
 let countryList =
-list.map(e => 
+country.map(e => 
   {
   return (
-    <div className="countryList" key={e.id}>
+    <div className="countryList" key={e.title}>
       <p>
-        <Link className="countryLinks" to={"/emissions/" + e.id + '/' + e.name}> {e.name}</Link>
+        <Link className="countryLinks" to={"/emissions/" + e._id + '/' + e.title}> {e.title}</Link>
       </p>
     </div>
 )});

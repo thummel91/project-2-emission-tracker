@@ -65,20 +65,20 @@ const Graph = ({
   twoDecimal,
   threeDecimal,
   fourDecimal,
-  fiveDecimal,
+  twelveDecimal,
   sixDecimal,
   sevenDecimal,
-  eightDecimal,
+  elevenDecimal,
   nineDecimal,
   tenDecimal,
 }) => {
     let two = Number(twoDecimal);
     let three = Number(threeDecimal);
     let four = Number(fourDecimal);
-    let five = Number(fiveDecimal);
+    let five = Number(twelveDecimal);
     let six = Number(sixDecimal);
     let seven = Number(sevenDecimal);
-    let eight = Number(eightDecimal);
+    let eight = Number(elevenDecimal);
     let nine  = Number(nineDecimal);
     let ten = Number(tenDecimal)
 
@@ -92,21 +92,21 @@ const Graph = ({
 				reversed: true,
 			},
 			axisY: {
-				title: "KG of carbon dioxide equivalent per €100",
+				title: "Megatonnes of Carbon Dioxide Equivalent",
 				includeZero: true,
 			},
 			data: [{
 				type: "bar",
 				dataPoints: [
-					{ y:  two, label: "Natural Gas" },
+					{ y:  ten, label: "Wind" },
+					{ y:  nine, label: "Solar" },
 					{ y:  three, label: "Biomass" },
-					{ y:  four, label: "Coal" },
-					{ y:  five, label: "Geothermal" },
 					{ y:  six, label: "Hydro" },
+					{ y:  five, label: "Other Renewables" },
 					{ y:  seven, label: "Nuclear" },
-					{ y:  eight, label: "Petroleum" },
-                    { y:  nine, label: "Solarvoltaic" },
-                    { y:  ten, label: "Wind" }
+					{ y:  eight, label: "Other Fossil Fuels" },
+					{ y:  two, label: "Natural Gas" },
+					{ y:  four, label: "Coal" },
 				]
 			}]
 		}
