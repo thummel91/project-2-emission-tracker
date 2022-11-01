@@ -98,7 +98,7 @@ html {
 
 .about{
     color: white;
-    font-family: 'Yellowtail', cursive;
+    font-family: 'Cormorant SC', cursive;
     font-size: 35px;
     text-align: center;
     margin: 0px;
@@ -106,11 +106,12 @@ html {
     border-style: solid;
     width: 90vw;
     margin: auto;
+    margin-bottom: 10vh;;
 }
 
 .aboutParagraph {
   color: white;
-  font-family: 'Yellowtail', cursive;
+  font-family: 'Cormorant', cursive;
     font-size: 30px;
     text-align: center;
     margin: 0px;
@@ -190,3 +191,11 @@ html {
 }
 
 
+a {
+  text-decoration: none; 
+  color: blue;
+}
+
+a:hover{
+  text-decoration: underline;
+}
