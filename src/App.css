@@ -65,6 +65,7 @@ html {
   width: 40vw;
   margin: auto;
   background-color: rgba(46, 152, 171, 0.38);
+  margin-bottom: 5vh;
 }
 
 .eList {

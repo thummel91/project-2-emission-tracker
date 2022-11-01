@@ -85,7 +85,7 @@ const Graph = ({
 		const options = {
 			animationEnabled: true,
 			title:{
-				text: "Carbon Emissions from Electricity by Method of Generation"
+				text: "Carbon Emissions by Method of Energy Generation"
 			},
 			axisX: {
 				title: "Method of Generation",
@@ -102,9 +102,9 @@ const Graph = ({
 					{ y:  nine, label: "Solar" },
 					{ y:  three, label: "Biomass" },
 					{ y:  six, label: "Hydro" },
-					{ y:  five, label: "Other Renewables" },
+					{ y:  eight, label: "Other Renewables" },
 					{ y:  seven, label: "Nuclear" },
-					{ y:  eight, label: "Other Fossil Fuels" },
+					{ y:  five, label: "Other Fossil Fuels" },
 					{ y:  two, label: "Natural Gas" },
 					{ y:  four, label: "Coal" },
 				]

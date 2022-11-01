@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Graph from "./Graph";
 import axios from "axios";
+
 
 // const energy = ["_gas", "_biomass_waste", "_coal", "_geothermal", "_hydro", "_nuclear", "_petroleum_other_oil_derivatives", "_solar_photovoltaic", "_wind"]
 
@@ -18,8 +19,6 @@ const Emissions = () => {
   const [wind, setWind] = useState();
   const [renew, setRenew] = useState();
   const [fossil, setFossil] = useState();
-
-  const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     axios
@@ -114,6 +113,7 @@ const Emissions = () => {
 
   return (
     <div>
+      <Link to = {"/generation/" + id + "/" + name}>Generation</Link>
       <div className="graph">
         <Graph
           twoDecimal={twoDecimal}
