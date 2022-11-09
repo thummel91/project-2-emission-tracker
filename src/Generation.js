@@ -4,18 +4,18 @@ import axios from "axios";
 import GenerationGraph from "./GenerationGraph";
 
 const Generation = () => {
-const { id, name } = useParams();
+  const { id, name } = useParams();
   const [gas, setGas] = useState();
-  const [biomass, setBiomass] = useState();
+  const [biomass, setBioenergy] = useState();
   const [coal, setCoal] = useState();
-  const [geothermal, setGeothermal] = useState();
+
   const [hydro, setHydro] = useState();
   const [nuclear, setNuclear] = useState();
-  const [pet, setPet] = useState();
+
   const [solar, setSolar] = useState();
   const [wind, setWind] = useState();
-  const [renew, setRenew] = useState();
-  const [fossil, setFossil] = useState();
+  const [renew, setOtherRenewables] = useState();
+  const [fossil, setOtherFossil] = useState();
 
   useEffect(() => {
     axios
@@ -37,7 +37,7 @@ const { id, name } = useParams();
     axios
       .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
       .then((res) => {
-        setBiomass(res.data.generation_Bioenergy);
+        setBioenergy(res.data.generation_Bioenergy);
       });
   }, []);
 
@@ -53,7 +53,7 @@ const { id, name } = useParams();
     axios
       .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
       .then((res) => {
-        setRenew(res.data.generation_OtherRenewables);
+        setOtherRenewables(res.data.generation_OtherRenewables);
       });
   }, []);
 
@@ -69,7 +69,7 @@ const { id, name } = useParams();
     axios
       .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
       .then((res) => {
-        setFossil(res.data.generation_OtherFossil);
+        setOtherFossil(res.data.generation_OtherFossil);
       });
   }, []);
 
@@ -88,11 +88,11 @@ const { id, name } = useParams();
         setCoal(res.data.generation_Coal);
       });
   }, []);
-  
+
   let tenDecimal = parseFloat(wind).toFixed(2);
 
   let nineDecimal = parseFloat(solar).toFixed(2);
-  
+
   let threeDecimal = parseFloat(biomass).toFixed(2);
 
   let sixDecimal = parseFloat(hydro).toFixed(2);
@@ -107,9 +107,18 @@ const { id, name } = useParams();
 
   let fourDecimal = parseFloat(coal).toFixed(2);
 
-    return (
-        <div>
-            <div className="graph">
+  return (
+    <div>
+      <h1 className="countryTitle">{name}</h1>
+      <div className="linkInPage">
+        <Link className="linkInPageItem" to={"/emissions/" + id + "/" + name}>
+          Emissions
+        </Link>
+        <Link className="linkInPageItem" to={"/ratio/" + id + "/" + name}>
+          Generation to Emissions
+        </Link>
+      </div>
+      <div className="graph">
         <GenerationGraph
           twoDecimal={twoDecimal}
           threeDecimal={threeDecimal}
@@ -120,31 +129,30 @@ const { id, name } = useParams();
           twelveDecimal={twelveDecimal}
           nineDecimal={nineDecimal}
           tenDecimal={tenDecimal}
-          />
+        />
       </div>
-             <div className="emissions">
-      <h1>{name}</h1>
-          {/* Wind */}
+      <div className="emissions">
+        <h1>{name}</h1>
+        {/* Wind */}
+        <div>
           <div>
-            <div>
-              {wind !== null ? (
+            {wind !== null ? (
+              <div>
                 <div>
-                  <div>
-                    <p className="eList">
-                      {" "}
-                      Wind: <br></br>
-                      {tenDecimal} Terwatt hours per year
-                    </p>{" "}
-                  </div>
+                  <p className="eList">
+                    {" "}
+                    Wind: <br></br>
+                    {tenDecimal} Terwatt hours per year
+                  </p>{" "}
                 </div>
-              ) : (
-                <p className="eList">
-                  There is no emissions data on Wind in{" "}
-                  {name}
-                </p>
-              )}
-            </div>
+              </div>
+            ) : (
+              <p className="eList">
+                There is no emissions data on Wind in {name}
+              </p>
+            )}
           </div>
+        </div>
         {/* Solar */}
         <div>
           <div>
@@ -160,8 +168,7 @@ const { id, name } = useParams();
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data
-                Solar in {name}
+                There is no emissions data Solar in {name}
               </p>
             )}
           </div>
@@ -180,8 +187,7 @@ const { id, name } = useParams();
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Biomass
-                in {name}
+                There is no emissions data on Biomass in {name}
               </p>
             )}
           </div>
@@ -194,14 +200,13 @@ const { id, name } = useParams();
                 <div>
                   <p className="eList">
                     {" "}
-                    Hydro:<br></br> {sixDecimal}  Terawatt hours per year
+                    Hydro:<br></br> {sixDecimal} Terawatt hours per year
                   </p>{" "}
                 </div>
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Hydro in{" "}
-                {name}
+                There is no emissions data on Hydro in {name}
               </p>
             )}
           </div>
@@ -214,14 +219,14 @@ const { id, name } = useParams();
                 <div>
                   <p className="eList">
                     {" "}
-                    Other Renewables:<br></br> {elevenDecimal} Terawatt hours per year
+                    Other Renewables:<br></br> {elevenDecimal} Terawatt hours
+                    per year
                   </p>{" "}
                 </div>
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Other Renewables in{" "}
-                {name}
+                There is no emissions data on Other Renewables in {name}
               </p>
             )}
           </div>
@@ -241,8 +246,7 @@ const { id, name } = useParams();
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Nuclear
-                in {name}
+                There is no emissions data on Nuclear in {name}
               </p>
             )}
           </div>
@@ -262,8 +266,7 @@ const { id, name } = useParams();
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on
-                Other Fossil Fuels in {name}
+                There is no emissions data on Other Fossil Fuels in {name}
               </p>
             )}
           </div>
@@ -280,10 +283,7 @@ const { id, name } = useParams();
               </div>
             </div>
           ) : (
-            <p className="eList">
-              There is no emissions data on Gas in{" "}
-              {name}
-            </p>
+            <p className="eList">There is no emissions data on Gas in {name}</p>
           )}
         </div>
         {/* Coal */}
@@ -300,15 +300,14 @@ const { id, name } = useParams();
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Coal in{" "}
-                {name}
+                There is no emissions data on Coal in {name}
               </p>
             )}
           </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Generation;

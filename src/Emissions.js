@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import Graph from "./Graph";
 import axios from "axios";
 
-
 // const energy = ["_gas", "_biomass_waste", "_coal", "_geothermal", "_hydro", "_nuclear", "_petroleum_other_oil_derivatives", "_solar_photovoltaic", "_wind"]
 
 const Emissions = () => {
@@ -95,7 +94,7 @@ const Emissions = () => {
   let tenDecimal = parseFloat(wind).toFixed(2);
 
   let nineDecimal = parseFloat(solar).toFixed(2);
-  
+
   let threeDecimal = parseFloat(biomass).toFixed(2);
 
   let sixDecimal = parseFloat(hydro).toFixed(2);
@@ -110,10 +109,15 @@ const Emissions = () => {
 
   let fourDecimal = parseFloat(coal).toFixed(2);
 
-
   return (
     <div>
-      <Link to = {"/generation/" + id + "/" + name}>Generation</Link>
+      <h1 className="countryTitle">{name}</h1>
+      <div className="linkInPage">
+        <Link className="linkInPageItem" to={"/generation/" + id + "/" + name}>Generation</Link>
+        <Link className="linkInPageItem" to={"/ratio/" + id + "/" + name}>
+          Generation to Emissions
+        </Link>
+      </div>
       <div className="graph">
         <Graph
           twoDecimal={twoDecimal}
@@ -125,31 +129,30 @@ const Emissions = () => {
           twelveDecimal={twelveDecimal}
           nineDecimal={nineDecimal}
           tenDecimal={tenDecimal}
-          />
+        />
       </div>
       <div className="emissions">
-      <h1>{name}</h1>
-          {/* Wind */}
+        <h1>{name}</h1>
+        {/* Wind */}
+        <div>
           <div>
-            <div>
-              {wind !== null ? (
+            {wind !== null ? (
+              <div>
                 <div>
-                  <div>
-                    <p className="eList">
-                      {" "}
-                      Wind: <br></br>
-                      {tenDecimal} Mt co2e per year
-                    </p>{" "}
-                  </div>
+                  <p className="eList">
+                    {" "}
+                    Wind: <br></br>
+                    {tenDecimal} Mt co2e per year
+                  </p>{" "}
                 </div>
-              ) : (
-                <p className="eList">
-                  There is no emissions data on Wind in{" "}
-                  {name}
-                </p>
-              )}
-            </div>
+              </div>
+            ) : (
+              <p className="eList">
+                There is no emissions data on Wind in {name}
+              </p>
+            )}
           </div>
+        </div>
         {/* Solar */}
         <div>
           <div>
@@ -165,8 +168,7 @@ const Emissions = () => {
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data
-                Solar in {name}
+                There is no emissions data Solar in {name}
               </p>
             )}
           </div>
@@ -185,8 +187,7 @@ const Emissions = () => {
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Biomass
-                in {name}
+                There is no emissions data on Biomass in {name}
               </p>
             )}
           </div>
@@ -199,14 +200,13 @@ const Emissions = () => {
                 <div>
                   <p className="eList">
                     {" "}
-                    Hydro:<br></br> {sixDecimal}  Mt co2e per year
+                    Hydro:<br></br> {sixDecimal} Mt co2e per year
                   </p>{" "}
                 </div>
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Hydro in{" "}
-                {name}
+                There is no emissions data on Hydro in {name}
               </p>
             )}
           </div>
@@ -225,8 +225,7 @@ const Emissions = () => {
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Other Renewables in{" "}
-                {name}
+                There is no emissions data on Other Renewables in {name}
               </p>
             )}
           </div>
@@ -246,8 +245,7 @@ const Emissions = () => {
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Nuclear
-                in {name}
+                There is no emissions data on Nuclear in {name}
               </p>
             )}
           </div>
@@ -267,8 +265,7 @@ const Emissions = () => {
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on
-                Other Fossil Fuels in {name}
+                There is no emissions data on Other Fossil Fuels in {name}
               </p>
             )}
           </div>
@@ -285,10 +282,7 @@ const Emissions = () => {
               </div>
             </div>
           ) : (
-            <p className="eList">
-              There is no emissions data on Gas in{" "}
-              {name}
-            </p>
+            <p className="eList">There is no emissions data on Gas in {name}</p>
           )}
         </div>
         {/* Coal */}
@@ -305,8 +299,7 @@ const Emissions = () => {
               </div>
             ) : (
               <p className="eList">
-                There is no emissions data on Coal in{" "}
-                {name}
+                There is no emissions data on Coal in {name}
               </p>
             )}
           </div>

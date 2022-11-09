@@ -108,6 +108,7 @@ html {
     width: 90vw;
     margin: auto;
     margin-bottom: 10vh;;
+    padding-bottom: 10vh;
 }
 
 .aboutParagraph {
@@ -199,4 +200,30 @@ a {
 
 a:hover{
   text-decoration: underline;
+}
+
+.countryTitle{
+  margin-top: 0vh;
+  color: white;
+  font-family: "Cormorant SC", serif;
+  font-size: 50px;
+}
+
+.linkInPage{
+  color: white;
+  font-family: "Cormorant SC", serif;
+  font-size: 5vh;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 4vh;
+}
+
+.linkInPageItem{
+  color: white;
+  font-family: "Cormorant SC", serif;
+  font-size: 5vh;
+  text-decoration: none;
 }
