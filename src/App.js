@@ -5,6 +5,8 @@ import Home from "./Home";
 import Emissions from "./Emissions";
 import "./App.css";
 import About from "./About";
+import Generation from "./Generation";
+import Ratio from "./Ratio";
 
 const App = () => {
   const [country, setCountry] = useState();
@@ -32,6 +34,14 @@ const App = () => {
           <Route
             path="/emissions/:id/:name"
             element={<Emissions setCountry={setCountry} country={country} />}
+          />
+          <Route
+            path="/generation/:id/:name"
+            element={<Generation setCountry={setCountry} country={country} />}
+          />
+          <Route
+            path="/ratio/:id/:name"
+            element={<Ratio setCountry={setCountry} country={country} />}
           />
         </Routes>
       </main>
