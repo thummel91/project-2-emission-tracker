@@ -65,6 +65,7 @@ html {
   width: 40vw;
   margin: auto;
   background-color: rgba(46, 152, 171, 0.38);
+  margin-bottom: 5vh;
 }
 
 .eList {
@@ -98,7 +99,7 @@ html {
 
 .about{
     color: white;
-    font-family: 'Yellowtail', cursive;
+    font-family: 'Cormorant SC', cursive;
     font-size: 35px;
     text-align: center;
     margin: 0px;
@@ -106,11 +107,13 @@ html {
     border-style: solid;
     width: 90vw;
     margin: auto;
+    margin-bottom: 10vh;;
+    padding-bottom: 10vh;
 }
 
 .aboutParagraph {
   color: white;
-  font-family: 'Yellowtail', cursive;
+  font-family: 'Cormorant', cursive;
     font-size: 30px;
     text-align: center;
     margin: 0px;
@@ -190,3 +193,37 @@ html {
 }
 
 
+a {
+  text-decoration: none; 
+  color: blue;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.countryTitle{
+  margin-top: 0vh;
+  color: white;
+  font-family: "Cormorant SC", serif;
+  font-size: 50px;
+}
+
+.linkInPage{
+  color: white;
+  font-family: "Cormorant SC", serif;
+  font-size: 5vh;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 4vh;
+}
+
+.linkInPageItem{
+  color: white;
+  font-family: "Cormorant SC", serif;
+  font-size: 5vh;
+  text-decoration: none;
+}

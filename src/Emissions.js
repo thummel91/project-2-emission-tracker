@@ -1,11 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import Graph from "./Graph";
-
+import axios from "axios";
 
 // const energy = ["_gas", "_biomass_waste", "_coal", "_geothermal", "_hydro", "_nuclear", "_petroleum_other_oil_derivatives", "_solar_photovoltaic", "_wind"]
-
-
 
 const Emissions = () => {
   const { id, name } = useParams();
@@ -18,461 +16,295 @@ const Emissions = () => {
   const [pet, setPet] = useState();
   const [solar, setSolar] = useState();
   const [wind, setWind] = useState();
+  const [renew, setRenew] = useState();
+  const [fossil, setFossil] = useState();
 
-
-const API_KEY = process.env.REACT_APP_API_KEY
-
-
-  //GAS
   useEffect(() => {
-    const url = "https://beta3.api.climatiq.io/estimate";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        emission_factor: {
-          activity_id: "electricity-energy_source_gas",
-          region: id,
-        },
-        parameters: {
-          money: 100,
-          money_unit: "eur",
-        },
-      }),
-    })
-      .then((res) => res.json())
-  
-      .then((data) => data.co2e)
-      .then((data) =>
-        setGas(data)
-      )
-      .catch(function (error) {
-        console.log(error);
+    axios
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
+      .then((res) => {
+        setWind(res.data.emissions_Wind);
       });
   }, []);
-  let twoDecimal = parseFloat(gas).toFixed(2);
-  //BIOMASS
+
   useEffect(() => {
-    const url = "https://beta3.api.climatiq.io/estimate";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        emission_factor: {
-          activity_id: "electricity-energy_source_biomass_waste",
-          region: id,
-        },
-        parameters: {
-          money: 100,
-          money_unit: "eur",
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => data.co2e)
-      .then((data) =>
-        // console.log(data)
-        setBiomass(data)
-      )
-      .catch(function (error) {
-        console.log(error);
+    axios
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions${id}`)
+      .then((res) => {
+        setSolar(res.data.emissions_Solar);
       });
   }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
+      .then((res) => {
+        setBiomass(res.data.emissions_Bioenergy);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
+      .then((res) => {
+        setHydro(res.data.emissions_Hydro);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
+      .then((res) => {
+        setRenew(res.data.emissions_OtherRenewables);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
+      .then((res) => {
+        setNuclear(res.data.emissions_Nuclear);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
+      .then((res) => {
+        setFossil(res.data.emissions_OtherFossil);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
+      .then((res) => {
+        setGas(res.data.emissions_Gas);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
+      .then((res) => {
+        setCoal(res.data.emissions_Coal);
+      });
+  }, []);
+
+  let tenDecimal = parseFloat(wind).toFixed(2);
+
+  let nineDecimal = parseFloat(solar).toFixed(2);
+
   let threeDecimal = parseFloat(biomass).toFixed(2);
 
-  //COAL
-  useEffect(() => {
-    const url = "https://beta3.api.climatiq.io/estimate";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        emission_factor: {
-          activity_id: "electricity-energy_source_coal",
-          region: id,
-        },
-        parameters: {
-          money: 100,
-          money_unit: "eur",
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => data.co2e)
-      .then((data) =>
-        // console.log(data)
-        setCoal(data)
-      )
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
-  let fourDecimal = parseFloat(coal).toFixed(2);
-
-  //Geothermal
-  useEffect(() => {
-    const url = "https://beta3.api.climatiq.io/estimate";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        emission_factor: {
-          activity_id: "electricity-energy_source_geothermal",
-          region: id,
-        },
-        parameters: {
-          money: 100,
-          money_unit: "eur",
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => data.co2e)
-      .then((data) =>
-        // console.log(data)
-        setGeothermal(data)
-      )
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
-  let fiveDecimal = parseFloat(geothermal).toFixed(2);
-
-  //HYDRO
-  useEffect(() => {
-    const url = "https://beta3.api.climatiq.io/estimate";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        emission_factor: {
-          activity_id: "electricity-energy_source_hydro",
-          region: id,
-        },
-        parameters: {
-          money: 100,
-          money_unit: "eur",
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => data.co2e)
-      .then((data) =>
-        // console.log(data)
-        setHydro(data)
-      )
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
   let sixDecimal = parseFloat(hydro).toFixed(2);
 
-  //NUCLEAR
-  useEffect(() => {
-    const url = "https://beta3.api.climatiq.io/estimate";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        emission_factor: {
-          activity_id: "electricity-energy_source_nuclear",
-          region: id,
-        },
-        parameters: {
-          money: 100,
-          money_unit: "eur",
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => data.co2e)
-      .then((data) =>
-        // console.log(data)
-        setNuclear(data)
-      )
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
+  let elevenDecimal = parseFloat(renew).toFixed(2);
+
   let sevenDecimal = parseFloat(nuclear).toFixed(2);
 
-  //Petroleum
-  useEffect(() => {
-    const url = "https://beta3.api.climatiq.io/estimate";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        emission_factor: {
-          activity_id:
-            "electricity-energy_source_petroleum_other_oil_derivatives",
-          region: id,
-        },
-        parameters: {
-          money: 100,
-          money_unit: "eur",
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => data.co2e)
-      .then((data) =>
-        // console.log(data)
-        setPet(data)
-      )
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
-  let eightDecimal = parseFloat(pet).toFixed(2);
+  let twelveDecimal = parseFloat(fossil).toFixed(2);
 
-  //Solar
-  useEffect(() => {
-    const url = "https://beta3.api.climatiq.io/estimate";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        emission_factor: {
-          activity_id: "electricity-energy_source_solar_photovoltaic",
-          region: id,
-        },
-        parameters: {
-          money: 100,
-          money_unit: "eur",
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => data.co2e)
-      .then((data) =>
-        // console.log(data)
-        setSolar(data)
-      )
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
-  let nineDecimal = parseFloat(solar).toFixed(2);
-    //Wind
-  useEffect(() => {
-    const url = "https://beta3.api.climatiq.io/estimate";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        emission_factor: {
-          activity_id: "electricity-energy_source_wind",
-          region: id,
-        },
-        parameters: {
-          money: 100,
-          money_unit: "eur",
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => data.co2e)
-      .then((data) =>
-        // console.log(data)
-        setWind(data)
-      )
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
-  let tenDecimal = parseFloat(wind).toFixed(2);
+  let twoDecimal = parseFloat(gas).toFixed(2);
+
+  let fourDecimal = parseFloat(coal).toFixed(2);
 
   return (
     <div>
-    <div className="graph">
-        <Graph twoDecimal = {twoDecimal} threeDecimal= {threeDecimal} fourDecimal={fourDecimal} fiveDecimal={fiveDecimal} sixDecimal={sixDecimal} sevenDecimal={sevenDecimal} eightDecimal={eightDecimal} nineDecimal={nineDecimal} tenDecimal={tenDecimal}
+      <h1 className="countryTitle">{name}</h1>
+      <div className="linkInPage">
+        <Link className="linkInPageItem" to={"/generation/" + id + "/" + name}>Generation</Link>
+        <Link className="linkInPageItem" to={"/ratio/" + id + "/" + name}>
+          Generation to Emissions
+        </Link>
+      </div>
+      <div className="graph">
+        <Graph
+          twoDecimal={twoDecimal}
+          threeDecimal={threeDecimal}
+          fourDecimal={fourDecimal}
+          elevenDecimal={elevenDecimal}
+          sixDecimal={sixDecimal}
+          sevenDecimal={sevenDecimal}
+          twelveDecimal={twelveDecimal}
+          nineDecimal={nineDecimal}
+          tenDecimal={tenDecimal}
         />
-    </div>
-    <div className ='emissions'>
-      {/* Natual Gas */}
-      <div>
+      </div>
+      <div className="emissions">
         <h1>{name}</h1>
-        {gas !== undefined ? (
+        {/* Wind */}
+        <div>
           <div>
-            <div>
-              <p className="eList">Natural Gas: <br></br>{twoDecimal} kg co2e per €100 </p>
-            </div>
+            {wind !== null ? (
+              <div>
+                <div>
+                  <p className="eList">
+                    {" "}
+                    Wind: <br></br>
+                    {tenDecimal} Mt co2e per year
+                  </p>{" "}
+                </div>
+              </div>
+            ) : (
+              <p className="eList">
+                There is no emissions data on Wind in {name}
+              </p>
+            )}
           </div>
-        ) : (
-          <p className="eList">
-            There is no emissions data on electricity generated by gas in {name}
-          </p>
-        )}
-      </div>
-      {/* Biomass */}
-      <div>
-        <div>
-          {biomass !== undefined ? (
-            <div>
-              <div>
-                <p className="eList">Biomass: <br></br>{threeDecimal} kg co2 equivalent per €100</p>
-              </div>
-            </div>
-          ) : (
-            <p className="eList">
-              There is no emissions data on electricity generated by biomass in {name}
-            </p>
-          )}
         </div>
-      </div>
-      {/* Coal */}
-      <div>
+        {/* Solar */}
         <div>
-          {coal !== undefined ? (
-            <div>
+          <div>
+            {solar !== null ? (
               <div>
-                <p className="eList"> Coal:<br></br> {fourDecimal} kg co2e per €100</p>{" "}
+                <div>
+                  <p className="eList">
+                    {" "}
+                    Solarvoltaic: <br></br>
+                    {nineDecimal} Mt co2e per year
+                  </p>{" "}
+                </div>
               </div>
-            </div>
-          ) : (
-            <p className="eList">
-              There is no emissions data on electricity generated by coal in {name}
-            </p>
-          )}
+            ) : (
+              <p className="eList">
+                There is no emissions data Solar in {name}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-      {/* Geothermal */}
-      <div>
+        {/* Biomass */}
         <div>
-          {geothermal !== undefined ? (
-            <div>
+          <div>
+            {biomass !== null ? (
               <div>
-                <p className="eList"> Geothermal: <br></br>{fiveDecimal} kg co2e per €100</p>{" "}
+                <div>
+                  <p className="eList">
+                    Biomass: <br></br>
+                    {threeDecimal} Mt co2e per year
+                  </p>
+                </div>
               </div>
-            </div>
-          ) : (
-            <p className="eList">
-              There is no emissions data on electricity generated by geothermal in {name}
-            </p>
-          )}
+            ) : (
+              <p className="eList">
+                There is no emissions data on Biomass in {name}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-      {/* Hydro */}
-      <div>
+        {/* Hydro */}
         <div>
-          {hydro !== undefined ? (
-            <div>
+          <div>
+            {hydro !== null ? (
               <div>
-                <p className="eList"> Hydro:<br></br> {sixDecimal} kg co2e per €100</p>{" "}
+                <div>
+                  <p className="eList">
+                    {" "}
+                    Hydro:<br></br> {sixDecimal} Mt co2e per year
+                  </p>{" "}
+                </div>
               </div>
-            </div>
-          ) : (
-            <p className="eList">
-              There is no emissions data on electricity generated by hydro in {name}
-            </p>
-          )}
+            ) : (
+              <p className="eList">
+                There is no emissions data on Hydro in {name}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-      {/* NUCLEAR */}
-      <div>
+        {/* Other Renewables */}
         <div>
-          {nuclear !== undefined ? (
-            <div>
+          <div>
+            {renew !== null ? (
               <div>
-                <p className="eList"> Nuclear: <br></br>{sevenDecimal} kg co2e per €100</p>{" "}
+                <div>
+                  <p className="eList">
+                    {" "}
+                    Other Renewables:<br></br> {elevenDecimal} Mt co2e per year
+                  </p>{" "}
+                </div>
               </div>
-            </div>
-          ) : (
-            <p className="eList">
-              There is no emissions data on electricity generated by nuclear in {name}
-            </p>
-          )}
+            ) : (
+              <p className="eList">
+                There is no emissions data on Other Renewables in {name}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-      {/* Petroleum */}
-      <div>
+        {/* NUCLEAR */}
         <div>
-          {pet !== undefined ? (
-            <div>
+          <div>
+            {nuclear !== null ? (
               <div>
-                <p className="eList">
-                  {" "}
-                  Petroleum and other oil derivatives: <br></br>{eightDecimal} kg co2e
-                  per €100
-                </p>{" "}
+                <div>
+                  <p className="eList">
+                    {" "}
+                    Nuclear: <br></br>
+                    {sevenDecimal} Mt co2e per year
+                  </p>{" "}
+                </div>
               </div>
-            </div>
-          ) : (
-            <p className="eList">
-              There is no emissions data on electricity generated by Petroleum and other oil derivaties in {name}
-            </p>
-          )}
+            ) : (
+              <p className="eList">
+                There is no emissions data on Nuclear in {name}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-      {/* Solar */}
-      <div>
+        {/* Other Fossil Fuels */}
         <div>
-          {solar !== undefined ? (
-            <div>
+          <div>
+            {fossil !== null ? (
               <div>
-                <p className="eList">
-                  {" "}
-                  Solarvoltaic: <br></br>{nineDecimal} kg co2e
-                  per €100
-                </p>{" "}
+                <div>
+                  <p className="eList">
+                    {" "}
+                    Other Fossil Fuels: <br></br>
+                    {twelveDecimal} Mt co2e per year
+                  </p>{" "}
+                </div>
               </div>
-            </div>
-          ) : (
-            <p className="eList">
-              There is no emissions data on electricity generated by Solarvoltaic in {name}
-            </p>
-          )}
+            ) : (
+              <p className="eList">
+                There is no emissions data on Other Fossil Fuels in {name}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-      {/* Wind */}
-      <div>
+        {/* Natual Gas */}
         <div>
-          {wind !== undefined ? (
+          {gas !== null ? (
             <div>
               <div>
                 <p className="eList">
-                  {" "}
-                  Wind: <br></br>{tenDecimal} kg co2e
-                  per €100
-                </p>{" "}
+                  Natural Gas: <br></br>
+                  {twoDecimal} Mt co2e per year{" "}
+                </p>
               </div>
             </div>
           ) : (
-            <p className="eList">
-              There is no emissions data on electricity generated by Wind in {name}
-            </p>
+            <p className="eList">There is no emissions data on Gas in {name}</p>
           )}
         </div>
+        {/* Coal */}
+        <div>
+          <div>
+            {coal !== null ? (
+              <div>
+                <div>
+                  <p className="eList">
+                    {" "}
+                    Coal:<br></br> {fourDecimal} Mt co2e per year
+                  </p>{" "}
+                </div>
+              </div>
+            ) : (
+              <p className="eList">
+                There is no emissions data on Coal in {name}
+              </p>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
