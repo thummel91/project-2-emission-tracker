@@ -21,7 +21,7 @@ const Emissions = () => {
 
   useEffect(() => {
     axios
-      .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
       .then((res) => {
         setWind(res.data.emissions_Wind);
       });
@@ -29,7 +29,7 @@ const Emissions = () => {
 
   useEffect(() => {
     axios
-      .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions${id}`)
       .then((res) => {
         setSolar(res.data.emissions_Solar);
       });
@@ -37,7 +37,7 @@ const Emissions = () => {
 
   useEffect(() => {
     axios
-      .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
       .then((res) => {
         setBiomass(res.data.emissions_Bioenergy);
       });
@@ -45,7 +45,7 @@ const Emissions = () => {
 
   useEffect(() => {
     axios
-      .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
       .then((res) => {
         setHydro(res.data.emissions_Hydro);
       });
@@ -53,7 +53,7 @@ const Emissions = () => {
 
   useEffect(() => {
     axios
-      .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
       .then((res) => {
         setRenew(res.data.emissions_OtherRenewables);
       });
@@ -69,7 +69,7 @@ const Emissions = () => {
 
   useEffect(() => {
     axios
-      .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
       .then((res) => {
         setFossil(res.data.emissions_OtherFossil);
       });
@@ -77,7 +77,7 @@ const Emissions = () => {
 
   useEffect(() => {
     axios
-      .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
       .then((res) => {
         setGas(res.data.emissions_Gas);
       });
@@ -85,7 +85,7 @@ const Emissions = () => {
 
   useEffect(() => {
     axios
-      .get(`https://gentle-wave-72526.herokuapp.com/emissions/${id}`)
+      .get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions/${id}`)
       .then((res) => {
         setCoal(res.data.emissions_Coal);
       });

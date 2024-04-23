@@ -18,7 +18,7 @@ useEffect(() => {
   getCountries()
 }, []);
 const getCountries = () => {
-  axios.get(`https://gentle-wave-72526.herokuapp.com/emissions`).then((res) => {
+  axios.get(`https://quiet-gorge-03165-6c773fd38803.herokuapp.com/emissions`).then((res) => {
     console.log(res.data)
       setCountry(res.data);
     });
